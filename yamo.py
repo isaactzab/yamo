@@ -1,26 +1,16 @@
 import ConfigParser
 import os
-import sqlite3
-# import yamodb
-
-
-# class Yamo(object):
-# 	config = 
-# 	def __init__(self):
-# 		print self.config.get('library','path')
-
-# 		# yamo['config'] = ConfigParser.RawConfigParser()
-# 		# yamo['config'].read('./config.cfg')
-# 		# library_path = yamo['config'].get('library','path')
-# if __name__ == '__main__':
-# 	Yamo()
-
-
+from yamodb.library import library
 
 class Yamo(object):
 	def __init__(self):
 		self.init_configuration()
-		self.parse_directory(self.config.get('library','path'))
+		self.lib = library(
+			self.config.get('library','path') + 
+			self.config.get('library','db')
+		)
+
+		# self.parse_directory(self.config.get('library','path'))
 
 
 	def init_configuration(self):
