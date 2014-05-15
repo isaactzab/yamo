@@ -5,10 +5,7 @@ from yamodb.library import library
 class Yamo(object):
 	def __init__(self):
 		self.init_configuration()
-		self.lib = library(
-			self.config.get('library','path') + 
-			self.config.get('library','db')
-		)
+		self.lib = library(	self.config.get('library','path') + self.config.get('library','db') )
 
 		# self.parse_directory(self.config.get('library','path'))
 
